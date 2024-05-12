@@ -24,8 +24,9 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 #Series of transformations to be applied for image augmentation
+
 data_transforms = v2.Compose([
-        #v2.Grayscale(), #required for training lenet; comment out for resnet and efficient net
+        v2.Grayscale(), #required for training lenet; comment out for resnet and efficient net
         v2.RandomRotation(15, expand=True),
         v2.ColorJitter(brightness=(1,15)),
         v2.GaussianBlur(5),

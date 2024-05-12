@@ -45,7 +45,9 @@ if __name__ == "__main__":
     #path_test_folder='project_files/synthetic_data_15_3/test'
     path_test_folder=''
     #check if the folder exists or path_test_folder is empty
-    if not os.path.exists(path_test_folder) or  path_test_folder=='':
+    #ge total number of files in the folder
+    num_files=len(os.listdir(path_test_folder))
+    if  path_test_folder=='' or num_files==0:
         print('Please provide a valid path to the test folder')
         exit()
     inference_test()
