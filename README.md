@@ -11,7 +11,6 @@ The data is present at [project_files/data](https://github.com/mishra-kunal1/fon
 The folder structure looks like this
 
 <div align="left">
-  <img width="180" alt="image" src="https://github.com/mishra-kunal1/font_classification/assets/99056351/0af2ba73-ec86-4e7c-85d5-65ede40a2f94">
+  <img width="180" alt="image" src="https://github.com/mishra-kunal1/font_classification/assets/99056351/cd7f7555-1726-4a78-aa7d-6b0837a77421">
 </div>
-
 
