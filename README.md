@@ -26,32 +26,48 @@ After creating synthetic dataset we have a total of 10,000 training images 1000 
 ## Installation and Usage
 
 ### 1. Clone the GitHub repo:<br />
-   `git clone https://github.com/mishra-kunal1/font_classification.git`<br />
-
-### 2. Prepare the dataset: <br />
-   `python prepare_dataset.py`<br />
-
-### 3. Training the model: <br />
-   3.1 To start training the data from scratch using LeNet:<br />
-   <br />
-   `python train.py --model lenet`<br />
-
-   3.2 To Fine tune the model using ResNet18:<br />
-   *Make sure to remove the grayscale transformation in the train.py file.*<br />
-   <br />
-   `python train.py --model resnet`<br />
+   ```
+    git clone https://github.com/mishra-kunal1/font_classification.git
+   ```
    
-   3.3 To Fine tune the model using EfficientNet B1 :<br />
-  *Make sure to remove the grayscale transformation in the train.py file.*<br />
-   <br />
-   `python train.py --model enet`<br />
+### 2. Change the dir and Install the requirements:<br />
+   ```
+   cd font_classification
+   pip install -r requirements.txt
+   ```
 
-   3.4 To resume training from last checkpoint <br />
-    <br />
-    `python train.py --model resnet --resume yes`<br />
+### 3. Prepare the dataset: <br />
+   ```
+   python prepare_dataset.py
+   ```
 
-### 4. Evaluating the performance of test data <br />
+### 4. Training the model: <br />
+   #### 4.1 To start training the data from scratch using LeNet:<br />
+   ```
+   python train.py --model lenet
+   ```
+
+   #### 4.2 To Fine tune the model using ResNet18:<br />
+   *Make sure to remove the grayscale transformation in the train.py file.*<br />
+   ```
+   python train.py --model resnet
+   ```
+   
+   #### 4.3 To Fine tune the model using EfficientNet B1 :<br />
+  *Make sure to remove the grayscale transformation in the train.py file.* <br />
+  ```
+   python train.py --model enet
+   ```
+
+   #### 4.4 To resume training from last checkpoint <br />
+  ```
+   python train.py --model resnet --resume yes
+   ```
+
+### 5. Evaluating the performance of test data <br />
+  ```
     python inference.py
+  ```
     
 
 
