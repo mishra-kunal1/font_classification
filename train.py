@@ -17,7 +17,7 @@ from performance_measure import calculate_metrics
 import os
 torch.manual_seed(42);
 torch.cuda.manual_seed(42);
-wandb_log = True
+wandb_log = False
 
 # Device will determine whether to run the training on GPU or CPU.
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
