@@ -54,7 +54,7 @@ def inference_test():
 if __name__ == "__main__":
     
     #update the path to the test folder
-    path_test_folder='/Users/kunalmishra/Desktop/font_classifier/project_files/synthetic_data_sample'
+    path_test_folder=''
     
     if  path_test_folder=='' or not os.path.exists(path_test_folder):
         print('Please provide a valid path to the test folder')
