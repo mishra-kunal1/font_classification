@@ -51,7 +51,7 @@ After creating synthetic dataset we have a total of 10,000 training images 1000 
     `python train.py --model resnet --resume yes`<br />
 
 ### 4. Evaluating the performance of test data <br />
-    `python inference.py`
+    python inference.py
     
 
 
