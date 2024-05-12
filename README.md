@@ -65,6 +65,7 @@ After creating synthetic dataset we have a total of 10,000 training images 1000 
    ```
 
 ### 5. Evaluating the performance of test data <br />
+ *Make sure to add the test_data path to inference.py.* <br />
   ```
     python inference.py
   ```
