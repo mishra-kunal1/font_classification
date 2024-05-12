@@ -24,10 +24,36 @@ The dataset also contains .ttf file for each font which can be used to generate 
 After creating synthetic dataset we have a total of 10,000 training images 1000 validation images, an ample amount suitable for training CNN models effectively.
 
 ## Models 
+The model's architecture can be found in **models** folder. The best performing models can be found in **saved_models** folder of the repo.
+### 1. LeNet model 
+The LeNet model is the first choice for image classification tasks due to its simplicity and effectiveness. We can convert the images to Grayscale and then pass it through Conv2d  and max pool layers. Since it is small model (200k params) , it is trianed from scratch on the given dataset. 
+
+### 2. ResNet18 model
+The second model that was chosen was ResNet18 model. Transfer learning method was used to fine tune the model by freezing all the weights. The last layer of the model was modified to have number of output neurons as 10. Two versions of Resnet model (with different hyperparams and augmentation techniques) were trained and evaulated. 
+
+### 3. Efficientnet model
+In order to experiment with some modern architectures , fine tuning on efficientnet-b1 is done. EfficientNet models are highly efficient due to their compound scaling method, achieving good performance with fewer parameters. Since we have limited compute fine tuning this model was a prudent choice.
 
 ## Performance Metrics
 
-## Training and Results
+Since the number of sample images were balanced, we considered accuracy as our first metric. In order to make the model more generalised and keep track of false positives and false negatives we also logged precision, recall and f1 score. During training the checkpoints were comparing the validation f1 score and the models with highest score were saved.
+
+## Training, Logging 
+- The training is done on single instance of Cloud GPUs. To monitor train metrics a subset of train data was put into eval mode along with the validation data
+- Logging and experiment tracking was done using Weights and Biases. Here's a snapshot of performance of top 4 models
+
+![alt text](image-1.png)
+
+## Results
+Here is a table summarizing the performance of the top 4 models:
+
+| Model         | Accuracy | F1 Score |
+|---------------|----------|-----------|
+| LeNet         | 0.81     | 0.83      | 
+| ResNet18      | 0.78     | 0.80      | 
+| ResNet18-256  | 0.83     | 0.85      | 
+| EfficientNet  | 0.80     | 0.79      | 
+
 
 ## Installation and Usage
 
