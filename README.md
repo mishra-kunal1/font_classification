@@ -23,6 +23,12 @@ The dataset also contains .ttf file for each font which can be used to generate 
 
 After creating synthetic dataset we have a total of 10,000 training images 1000 validation images, an ample amount suitable for training CNN models effectively.
 
+## Models 
+
+## Performance Metrics
+
+## Training and Results
+
 ## Installation and Usage
 
 ### 1. Clone the GitHub repo:<br />
