@@ -147,6 +147,8 @@ args = parser.parse_args()
 if args.model == 'lenet':
     seq_model = lenet.LeNet(config.num_classes)
     out_dir='lenet_saved_model'
+    print('LeNet model architecture selected.')
+    print('Please enable grayscale transform while defining the data transforms in the code')
     num_params = sum(p.numel() for p in seq_model.parameters() if p.requires_grad)
     print(f'Number of parameters in the LeNet model: {num_params/1e6} M')
 elif args.model == 'resnet':

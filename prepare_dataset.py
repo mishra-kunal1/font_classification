@@ -115,7 +115,15 @@ class PrepareDataset:
     
     def generate_sample_font_images(self,font_name):
         """
-        Generates synthetic images for each font in the dataset for training and validation
+        Generate the synthetic images for the given font name.
+        First the ttf file is loaded for the corresponding font name.
+        For each image (num_samples) images are created.
+        The width and height of the generated image is the same as the original image.
+        Using the width of the image, the number of characters that can fit in the image is calculated.
+        A random string of words is generated that is less than or equal to the number of characters.
+        The font size is calculated such that the text fits in the image.
+        The text is drawn on the image after appropriate scalling and positioning.
+        Finally the image is saved in the synthetic_data folder.
         """
         os.makedirs(os.path.join(self.project_files_path,self.synthetic_folder_name,"synthetic_train",font_name),exist_ok=True)
         os.makedirs(os.path.join(self.project_files_path,self.synthetic_folder_name,"synthetic_val",font_name),exist_ok=True)
