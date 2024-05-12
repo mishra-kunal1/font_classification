@@ -40,7 +40,7 @@ def get_dataloader(data_path,label):
     """
     Create a dataloader for the input dataset given the path and label
     """
-    if(label=='True'):
+    if(label=='train'):
         shuffle=True
     else:
         shuffle=False

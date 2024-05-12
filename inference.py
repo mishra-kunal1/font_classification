@@ -16,7 +16,7 @@ def inference_test():
     """
     Function to evaluate the models on the test data
     """
-    models=['lenet','resnet','resnet256']
+    models=['lenet','resnet','resnet256','enet']
     print('Total files in the test folder:',len(os.listdir(path_test_folder)))
     for model in models:
         model_name=model
@@ -30,7 +30,12 @@ def inference_test():
             seq_model = resnet.CustomResNet(config.num_classes).get_model()
         elif(model=='efficient_net'):
             enet_model = efficient_net.CustomEfficientNet(config.num_classes).get_model()
-        seq_model.load_state_dict(torch.load(os.path.join(out_dir,f'state_{model_name}.pt'),map_location=torch.device('cpu')))
+        if(model=='enet'):
+            #having issue with loading efficient net model
+            #works fine during training but not during inference
+            seq_model.load_state_dict(torch.load(os.path.join(out_dir,f'state_{model_name}.pt'),map_location=torch.device('cpu')),strict=False)
+        else:
+            seq_model.load_state_dict(torch.load(os.path.join(out_dir,f'state_{model_name}.pt'),map_location=torch.device('cpu')))
         #calcualte the metrics 5 times and take the average
         out=calculate_metrics(test_loader,seq_model,3,True)
         #take average of the metrics
@@ -49,7 +54,7 @@ def inference_test():
 if __name__ == "__main__":
     
     #update the path to the test folder
-    path_test_folder=''
+    path_test_folder='/Users/kunalmishra/Desktop/font_classifier/project_files/synthetic_data_sample'
     
     if  path_test_folder=='' or not os.path.exists(path_test_folder):
         print('Please provide a valid path to the test folder')
