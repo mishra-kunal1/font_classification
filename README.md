@@ -25,8 +25,29 @@ After creating synthetic dataset we have a total of 10,000 training images 1000 
 
 ## Installation and Usage
 
-1. Clone the github repo <br>
-`git clone link_to_the_repo`
+### 1. Clone the GitHub repo:<br />
+   `git clone https://github.com/mishra-kunal1/font_classification.git`<br />
+
+### 2. Prepare the dataset: <br />
+   `python prepare_dataset.py`<br />
+
+### 3. Training the model: <br />
+   3.1 To start training the data from scratch using LeNet:<br />
+   <br />
+   `python train.py --model lenet`<br />
+
+   3.2 To Fine tune the model using ResNet18:<br />
+   *Make sure to remove the grayscale transformation in the train.py file.*<br />
+   <br />
+   `python train.py --model resnet`<br />
+   
+   3.3 To Fine tune the model using EfficientNet B1 :<br />
+  *Make sure to remove the grayscale transformation in the train.py file.*<br />
+   <br />
+   `python train.py --model enet`<br />
+
+
+
 
 
 
