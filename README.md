@@ -46,6 +46,17 @@ After creating synthetic dataset we have a total of 10,000 training images 1000 
    <br />
    `python train.py --model enet`<br />
 
+   3.4 To resume training from last checkpoint <br />
+    <br />
+    `python train.py --model resnet --resume yes`<br />
+    <br />
+### 4. Evaluating the performance on test data
+    *Make sure to update the test_file path in main method of inference.py.*<br />
+    <br />
+    `python inference.py`<br />
+    <br />
+    
+
 
 
 
