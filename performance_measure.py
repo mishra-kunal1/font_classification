@@ -36,12 +36,15 @@ def compute_recall_precison_f1(num_classes, all_labels, all_preds):
 
 @torch.no_grad()
 def calculate_metrics(eval_dataloader,seq_model):
-    #train_subset_loader=create_subset_loader('project_files/synthetic_data/synthetic_train',config['eval_batches'])
-    criterion = torch.nn.CrossEntropyLoss()
+    """
+    Calculate the accuracy, precision, recall and f1 score for the model on the input dataloader
+    """
+    cross_entropy_loss = torch.nn.CrossEntropyLoss()
     seq_model.eval()
     correct = 0
     total = 0
     total_loss=0
+    # Initialize the lists to store the labels and predictions for all points in the dataloader
     all_labels = torch.zeros(len(eval_dataloader.dataset))
     all_preds = torch.zeros(len(eval_dataloader.dataset))
     for i,(images, labels) in enumerate(eval_dataloader):
@@ -54,11 +57,13 @@ def calculate_metrics(eval_dataloader,seq_model):
                 outputs = outputs.cpu().detach()
                 _, predicted_label = torch.max(outputs.data, 1)
                 labels= labels.cpu().detach()
-                total_loss+=criterion(outputs,labels)
+                #computing loss
+                total_loss+=cross_entropy_loss(outputs,labels)
 
                 # Compute accuracy
                 total += labels.size(0)
                 correct += (predicted_label == labels).sum().item()
+                # Store the labels and predictions for current batch
                 all_labels[curr_index:(curr_index+len(labels))] = labels
                 all_preds[curr_index:(curr_index+len(labels))] = predicted_label
             #average loss
