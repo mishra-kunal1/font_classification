@@ -25,7 +25,7 @@ After creating synthetic dataset we have a total of 10,000 training images 1000 
 
 ## Installation and Usage
 
-> 1. Clone the github repo <br>
+1. Clone the github repo <br>
 `git clone link_to_the_repo`
 
 
