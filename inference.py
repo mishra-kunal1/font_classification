@@ -10,15 +10,17 @@ import os
 def get_dataloader(path,data_transform):
     dataset=ImageFolder(path,transform=data_transform)
     dataloader=data.DataLoader(dataset,batch_size=config.batch_size)
-    print('Number of points in dataset - ', len(dataset))
     return dataloader
 
 def inference_test():
-    model_dict={'lenet':'lenet','resnet':'resnet','resnet256':'resnet256',#'efficient_net':'enet'
-            }
-    for model in model_dict.keys():
-        model_name=model_dict[model]
-        print('Model - ',model_name)
+    """
+    Function to evaluate the models on the test data
+    """
+    models=['lenet','resnet','resnet256']
+    print('Total files in the test folder:',len(os.listdir(path_test_folder)))
+    for model in models:
+        model_name=model
+        print('Starting Evaluation with Model - ',model_name)
         out_dir=os.path.join(f'saved_models',f'{model_name}_saved_model')
         data_transforms=torch.load(os.path.join(out_dir,f'transforms_{model_name}.pt'))
         test_loader=get_dataloader(path_test_folder,data_transforms)
@@ -32,20 +34,22 @@ def inference_test():
         #calcualte the metrics 5 times and take the average
         out=calculate_metrics(test_loader,seq_model,3,True)
         #take average of the metrics
-        print('*'*50)
-        print('Accuracy: {:.2f}%'.format(out['accuracy']),end = ' , ')
-        print('Precision: {:.2f}'.format(out['precision']),end = ' , ')
-        print('Recall: {:.2f}'.format(out['recall']),end = ' , ')
-        print('F1 Score: {:.2f}'.format(out['f1_score']),end = ' , ')
+        print('-'*50)
+        print('Final Score for ',model_name)
+        print('Accuracy: {:.2f}%'.format(out['accuracy']))
+        print('Precision: {:.2f}'.format(out['precision']))
+        print('Recall: {:.2f}'.format(out['recall']))
+        print('F1 Score: {:.2f}'.format(out['f1_score']))
         print('Loss: {:.4f}'.format(out['loss']))
+        print('-'*50)
         print('*'*50)
-   
+        print('-'*50)
+        
 
 if __name__ == "__main__":
-    #path_test_folder='project_files/synthetic_data_15_3/test'
-    path_test_folder='/Users/kunalmishra/Desktop/font_classifier/project_files/data'
-    #check if the folder exists or path_test_folder is empty
-    #ge total number of files in the folder
+    
+    #update the path to the test folder
+    path_test_folder=''
     
     if  path_test_folder=='' or not os.path.exists(path_test_folder):
         print('Please provide a valid path to the test folder')
