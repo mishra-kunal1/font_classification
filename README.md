@@ -21,10 +21,11 @@ The dataset also contains .ttf file for each font which can be used to generate 
 
 > The process of generating synthetic data is explanied in [generating_synthetic_images.ipynb](https://github.com/mishra-kunal1/font_classification/blob/main/notebooks/generating_syntetic_images.ipynb)
 
-After creating synthetic dataset we have a total of 10,000 training images 1000 validation images, an ample amount suitable for training CNN models effectively.
+After creating synthetic dataset we have a total of 10,000 training images and 1000 validation images, an ample amount suitable for training CNN models effectively.
 
 ## Models 
-The model's architecture can be found in **models** folder. The best performing models can be found in **saved_models** folder of the repo.
+The model's architecture can be found in **models** folder. The best performing models can be found in **saved_models** folder of the repo.<br />
+The following models were trained on the dataset
 ### 1. LeNet model 
 The LeNet model is the first choice for image classification tasks due to its simplicity and effectiveness. We can convert the images to Grayscale and then pass it through Conv2d  and max pool layers. Since it is small model (200k params) , it is trianed from scratch on the given dataset. 
 
@@ -36,7 +37,7 @@ In order to experiment with some modern architectures , fine tuning on efficient
 
 ## Performance Metrics
 
-Since the number of sample images were balanced, we considered accuracy as our first metric. In order to make the model more generalised and keep track of false positives and false negatives we also logged precision, recall and f1 score. During training the checkpoints were comparing the validation f1 score and the models with highest score were saved.
+Since the number of sample images were balanced,  accuracy was considered as the first metric. In order to make the model more generalised and keep track of false positives and false negatives we also logged precision, recall and f1 score. During training the checkpoints were comparing the validation f1 score and the models with highest score were saved.
 
 ## Training, Logging 
 - The training is done on single instance of Cloud GPUs. To monitor train metrics a subset of train data was put into eval mode along with the validation data
@@ -69,6 +70,7 @@ Here is a table summarizing the performance of the top 4 models:
    ```
 
 ### 3. Prepare the dataset: <br />
+The following command will perform the train,val and test split and will generate synthetic data.
    ```
    python prepare_dataset.py
    ```

@@ -79,7 +79,7 @@ def calculate_metrics(eval_dataloader,seq_model,num_evaluations=1,verbose=True):
         # Validation Accuracy
         val_accuracy = 100 * correct / total
         if(verbose):
-            print('Avergae loss {:.4f}'.format(average_loss),end = ' , ')
+            print('Average loss {:.4f}'.format(average_loss),end = ' , ')
             print('Accuracy: {:.2f}%'.format(val_accuracy),end = ' , ')
         #macro recall
         macro_recall, macro_precision,macro_f1=compute_recall_precison_f1(config.num_classes,all_labels,all_preds,verbose)

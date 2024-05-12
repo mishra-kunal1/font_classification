@@ -17,13 +17,13 @@ def inference_test():
     Function to evaluate the models on the test data
     """
     models=['lenet','resnet','resnet256','enet']
-    print('Total files in the test folder:',len(os.listdir(path_test_folder)))
+    print('Total files in the test folder:',len(os.listdir(test_data_path)))
     for model in models:
         model_name=model
         print('Starting Evaluation with Model - ',model_name)
         out_dir=os.path.join(f'saved_models',f'{model_name}_saved_model')
         data_transforms=torch.load(os.path.join(out_dir,f'transforms_{model_name}.pt'))
-        test_loader=get_dataloader(path_test_folder,data_transforms)
+        test_loader=get_dataloader(test_data_path,data_transforms)
         if(model=='lenet'):
             seq_model = lenet.LeNet(config.num_classes)
         elif(model=='resnet' or model=='resnet256'):
@@ -54,9 +54,9 @@ def inference_test():
 if __name__ == "__main__":
     
     #update the path to the test folder
-    path_test_folder=''
+    test_data_path=''
     
-    if  path_test_folder=='' or not os.path.exists(path_test_folder):
+    if  test_data_path=='' or not os.path.exists(test_data_path):
         print('Please provide a valid path to the test folder')
         exit()
     inference_test()
