@@ -9,8 +9,9 @@ The dataset used for font classification consists of a collection of text images
 **There are total 10 font classes present in the dataset with approximate 80 sample images per font.**
 The data is present at [project_files/data](https://github.com/mishra-kunal1/font_classification/tree/main/project_files/data) of the repo.
 The folder structure looks like this
-<img width="180" alt="image" src="https://github.com/mishra-kunal1/font_classification/assets/99056351/0af2ba73-ec86-4e7c-85d5-65ede40a2f94">
 
-
+<div align="left">
+  <img width="180" alt="image" src="https://github.com/mishra-kunal1/font_classification/assets/99056351/0af2ba73-ec86-4e7c-85d5-65ede40a2f94">
+</div>
 
 
