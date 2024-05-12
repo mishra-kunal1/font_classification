@@ -13,5 +13,3 @@ learning_rate=0.003
 batch_size=32
 epochs=10
 eval_batches=30
-
-synthetic_folder_name="synthetic_data_15_3"
