@@ -57,6 +57,7 @@ Here is a table summarizing the performance of the top 4 models:
 
 
 ## Installation and Usage
+> A demo workflow of complete code is present at font_classification.ipynb <br />
 
 ### 1. Clone the GitHub repo:<br />
    ```
@@ -99,7 +100,8 @@ The following command will perform the train,val and test split and will generat
    ```
 
 ### 5. Evaluating the performance of test data <br />
-  **Important  - Make sure to add the test_data path to inference.py before running the code.** <br />
+  **Important  - Make sure to add the test_data_path to main method of inference.py before running the code.** <br />
+  You can also add the test_data_path in inference.ipynb to get evaluation results <br />
 
   ```
     python inference.py
